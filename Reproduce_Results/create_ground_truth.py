@@ -14,11 +14,18 @@ DATA_TYPE = '2017'
 ANN_FILE = '{}/instances_{}.json'.format(DATA_DIR,DATA_TYPE)
 CAPTIONS_FILE = '{}/captions_{}.json'.format(DATA_DIR,DATA_TYPE)
 SENTENCE_ENCODER_MODULE_URL = "https://tfhub.dev/google/universal-sentence-encoder/2"
+SIMILARITY_THRESHOLD = 0.7
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Preprocess to extract text from a folder of csv files.')
-    parser.add_argument('-data', default="data/15K_Dataset.pkl", metavar='data', help='Pickled file.', required=False)
+    parser.add_argument('-data', default="data/15K_Dataset.pkl", metavar='data', help='Pickled file containing the list of images.', required=False)
+    parser.add_argument('-out', default="data/Ground_Truth.pkl", metavar='data', help='Directory to write the .', required=False)
     args = parser.parse_args()
+
+    # Initializing the ground truth dictionary and a list of captions.
+    data_dict = {}
+    captions_lst = []
+    ground_truth_dict = {}
 
     # Loading annotations and creating an Index
     coco = COCO(ANN_FILE)
@@ -45,7 +52,7 @@ if __name__ == "__main__":
 
         for ann in anns:
             cap_lst.append(ann['caption'])
-            # captions_lst.append(ann['caption'])
+            captions_lst.append(ann['caption'])
 
         data_dict[img['file_name']] = cap_lst
 
@@ -64,5 +71,34 @@ if __name__ == "__main__":
         corr = np.inner(message_embeddings, message_embeddings)
         session.close()
 
-    # Loading the precomputed results.
-    pre_computed_results = pickle.load(open(PRE_COMPUTED_RESULTS_PATH, "rb"))
+    # Iterating over the images to create the ground truth.
+    for image in image_subset:
+
+        # Defining the ground truth - Start.
+        ground_truth = []
+
+        # Fetching the human generated captions for the image.
+        human_cap_lst = data_dict[image]
+
+        # Fetching the list of closest captions for each human generated caption.
+        temp_cap_lst = []
+        for cap in human_cap_lst:
+            index = captions_lst.index(cap)
+
+            for i, similarity in enumerate(corr[index][0:]):
+                if similarity > SIMILARITY_THRESHOLD and captions_lst[i] not in temp_cap_lst:
+                    temp_cap_lst.append(captions_lst[i])
+
+            # Fetch the images having that human generated caption.
+            for key in data_dict:
+                for cap in data_dict[key]:
+                    if cap in temp_cap_lst and key not in ground_truth:
+                        ground_truth.append(key)
+
+        # Adding the ground truth for the image to the ground truth dictionary.
+        ground_truth_dict[image] = ground_truth
+
+    # Creating the pickle file of the ground truth.
+    # Adding the data to a pickle file.
+    with open(args.out, "wb") as f:
+        pickle.dump(ground_truth_dict, f)
