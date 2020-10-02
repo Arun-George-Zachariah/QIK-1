@@ -5,9 +5,14 @@ HOME=${HOME}
 QIK_HOME=${PWD}/../..
 QIK_CORE_NAME=QIK
 USER=${USER}
+QIK_INDEX_URL="https://mailmissouri-my.sharepoint.com/:u:/g/personal/az2z7_umsystem_edu/EZedBIRgYntGpc9h_hsFezcBups95AkJgeR2TwyoFxW8tA?download=1"
 
 # Directory to save the query image.
 mkdir $HOME/apache-tomcat/webapps/QIK
+
+# Activating the Conda Environment.
+conda create -y --name qik_env python=3.6
+conda activate qik_env
 
 # Downloading Large Files.
 # 1) Show and tell model.
@@ -39,6 +44,10 @@ export SOLR_ULIMIT_CHECKS=false
 echo 'export SOLR_ULIMIT_CHECKS=false' >> /users/$USER/.profile
 . /users/$USER/.profile
 
+# Setting Stanford Parser Classpath
+export CLASSPATH=$QIK_HOME/IndexEngine/lib
+echo 'export CLASSPATH=$QIK_HOME/IndexEngine/lib' >> /users/$USER/.profile
+
 # Starting Solr.
 ./solr-8.0.0/bin/solr start
 
@@ -50,10 +59,6 @@ cd $QIK_HOME && git clone https://github.com/JoaoFelipe/apted.git APTED
 
 # Building and deploying the indexing engine.
 bash $QIK_HOME/scripts/deploy_scripts/deploy_index_engine.sh
-
-# Setting Stanford Parser Classpath
-export CLASSPATH=$QIK_HOME/IndexEngine/lib
-echo 'export CLASSPATH=$QIK_HOME/IndexEngine/lib' >> /users/$USER/.profile
 
 # Installing Python dependencies.
 pip install -r $QIK_HOME/scripts/deploy_scripts/requirements.txt
@@ -71,5 +76,6 @@ rm -rvf $HOME/apache-tomcat-9.0.20.zip
 rm -rvf $HOME/solr-8.0.0.tgz
 rm -rvf $QIK_HOME/BaseX92.zip
 
-# Executing profile.
-echo '. '$HOME'/.bashrc' >> /users/$USER/.profile
+# Downloading index files.
+wget $QIK_INDEX_URL -O ${QIK_HOME}/BaseX/data/QIK.tar
+cd ${QIK_HOME}/BaseX/data && tar -xvf QIK.tar
