@@ -13,6 +13,8 @@ export PATH=$HOME/anaconda3/bin:$PATH
 . /users/$USER/.bashrc
 echo 'export PATH='$HOME'/anaconda3/bin:$PATH' >> /users/$USER/.profile
 conda init
+conda create -y --name qik_env python=3.6
+conda activate qik_env
 echo 'export PATH='$HOME'/anaconda3/envs/qik_env/bin::$PATH' >> /users/$USER/.profile
 
 # Exports

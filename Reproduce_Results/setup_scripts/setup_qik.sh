@@ -10,10 +10,6 @@ QIK_INDEX_URL="https://mailmissouri-my.sharepoint.com/:u:/g/personal/az2z7_umsys
 # Directory to save the query image.
 mkdir $HOME/apache-tomcat/webapps/QIK
 
-# Activating the Conda Environment.
-conda create -y --name qik_env python=3.6
-conda activate qik_env
-
 # Downloading Large Files.
 # 1) Show and tell model.
 wget https://mailmissouri-my.sharepoint.com/:u:/g/personal/az2z7_umsystem_edu/EQ8OVRhr8kdAoL-n52IX-sEBEsUhOrK5Q_C_SkqTUAthUQ?download=1 -O $QIK_HOME/ML_Models/ShowAndTell/checkpoints/model.ckpt-5000000.data-00000-of-00001
