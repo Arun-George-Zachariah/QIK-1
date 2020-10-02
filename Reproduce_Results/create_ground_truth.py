@@ -99,6 +99,5 @@ if __name__ == "__main__":
         ground_truth_dict[image] = ground_truth
 
     # Creating the pickle file of the ground truth.
-    # Adding the data to a pickle file.
     with open(args.out, "wb") as f:
         pickle.dump(ground_truth_dict, f)
