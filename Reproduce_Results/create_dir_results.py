@@ -1,16 +1,14 @@
 from sys import path
 path.append("../QIK_Web/util/")
-path.append("../ML_Models/ObjectDetection")
 
 import constants
-from qik_search import qik_search
-import caption_generator
-import detect_objects
+import logging
+import dir_search
 import datetime
 import argparse
 import pickle
 
-# Local Constants
+# Local constants
 EVAL_K = 16
 
 def retrieve(query_image):
@@ -19,45 +17,43 @@ def retrieve(query_image):
     # Reading the input request.
     query_image_path = constants.TOMCAT_LOC + constants.IMAGE_DATA_DIR + query_image
 
-    # Get QIK results
+    # Get DIR results
     time = datetime.datetime.now()
 
-    qik_pre_results = []
-    qik_results = []
+    dir_results = []
 
-    # Fetching the candidates from QIK.
-    qik_results_dict = qik_search(query_image_path, obj_det_enabled=False, ranking_func='Parse Tree', fetch_count=EVAL_K + 1)
-    for result in qik_results_dict:
-        k, v = result
-        qik_pre_results.append(k.split("::")[0].split("/")[-1])
+    # Fetching the candidates from DIR.
+    dir_pre_results = dir_search.dir_search(query_image_path, EVAL_K + 1)
 
-    # Noting QIK time.
-    qik_time = datetime.datetime.now() - time
-    print("create_qik_results.py :: retrieve:: QIK Fetch Execution time :: ", qik_time)
+    # Noting DIR time.
+    dir_time = datetime.datetime.now() - time
+    print("create_dir_results.py :: DIR Fetch Execution time :: ", dir_time)
+    logging.info("create_dir_results.py :: DIR Fetch Execution time :: %s", str(dir_time))
 
     # Removing query image from the result set.
-    for res in qik_pre_results:
-        if res == query_image:
+    for res in dir_pre_results:
+        img_file = res.rstrip().split("/")[-1]
+        if img_file == query_image:
             continue
-        qik_results.append(res)
+        dir_results.append(res.rstrip().split("/")[-1])
+    print("create_dir_results.py :: DIR :: dir_results :: ", dir_results)
 
     # Adding data to the return dictionary.
-    ret_dict["qik_time"] = qik_time.microseconds
-    ret_dict["qik_results"] = qik_results
+    ret_dict["dir_time"] = dir_time.microseconds
+    ret_dict["dir_results"] = dir_results
+    print("create_dir_results.py :: retrieve :: ret_dict :: ", str(ret_dict))
 
-    print("create_qik_results.py :: retrieve :: ret_dict :: ", str(ret_dict))
     return ret_dict
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Preprocess to extract text from a folder of csv files.')
     parser.add_argument('-data', default="data/15K_Dataset.pkl", metavar='data', help='Pickled file containing the list of images.', required=False)
-    parser.add_argument('-out', default="data/QIK_Results.pkl", metavar='data', help='Directory to write the QIK Results.', required=False)
+    parser.add_argument('-out', default="data/DIR_Results.pkl", metavar='data', help='Directory to write the QIK Results.', required=False)
     args = parser.parse_args()
 
     # Initializing the ML Models.
-    caption_generator.init()
-    detect_objects.init()
+    dir_search.init()
 
     # Initializing a dictionary to hold the results.
     results_dict = {}
