@@ -19,7 +19,7 @@ SIMILARITY_THRESHOLD = 0.7
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Preprocess to extract text from a folder of csv files.')
     parser.add_argument('-data', default="data/15K_Dataset.pkl", metavar='data', help='Pickled file containing the list of images.', required=False)
-    parser.add_argument('-out', default="data/Ground_Truth.pkl", metavar='data', help='Directory to write the .', required=False)
+    parser.add_argument('-out', default="data/Ground_Truth.pkl", metavar='data', help='Directory to write the ground truth.', required=False)
     args = parser.parse_args()
 
     # Initializing the ground truth dictionary and a list of captions.
