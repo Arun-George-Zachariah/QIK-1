@@ -27,6 +27,8 @@ export IP=$IP
 echo 'export IP='$IP >> /users/$USER/.profile
 export DB_ROOT=''
 echo 'export DB_ROOT=""' >> /users/$USER/.profile
+export HOSTNAME=$(hostname)
+echo 'export HOSTNAME='$HOSTNAME >> /users/$USER/.profile
 . /users/$USER/.profile
 
 # Installing Java.
