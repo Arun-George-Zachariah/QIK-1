@@ -3,8 +3,6 @@
 # Constants.
 HOME=${HOME}
 QIK_HOME=${PWD}/../..
-QIK_CORE_NAME=QIK
-USER=${USER}
 
 # Creating data directories.
 cd $QIK_HOME/ML_Models/DeepImageRetrieval && mkdir QIK_Data && cd QIK_Data
