@@ -5,7 +5,7 @@ HOME=${HOME}
 QIK_HOME=${PWD}/../..
 
 # Installing FR-CNN.
-cd $QIK_HOME/ML_Models/DeepVision && ./setup.sh
+cd $QIK_HOME/ML_Models/DeepVision && bash setup.sh
 
 # Activating the conda environment.
 source activate deepvision

@@ -21,7 +21,7 @@ make
 sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
 sudo apt-get install -y --no-install-recommends libboost-all-dev
 sudo apt-get install -y libatlas-base-dev
-for req in $(cat caffe-fast-rcnn/python/requirements.txt); do pip install $req; done
+for req in $(cat $FRCN_ROOT/caffe-fast-rcnn/python/requirements.txt); do pip install $req; done
 # Fixing common caffe installation issues. (Ref: https://github.com/BVLC/caffe/wiki/Commonly-encountered-build-issues)
 sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev 
 sudo apt-get uninstall -y libatlas-base-dev
