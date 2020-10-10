@@ -2,7 +2,7 @@
 
 # Creating a seperate conda environment due to its dependency on python 2.7.
 conda create -y --name deepvision python=2.7
-conda activate deepvision
+source activate deepvision
 
 # Cloning Faster R-CNN python implementation by Ross Girshick.
 git clone --recursive https://github.com/rbgirshick/py-faster-rcnn.git
