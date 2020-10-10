@@ -23,6 +23,3 @@ done
 
 # Extracting DIR Features.
 cd ../ && python -m dirtorch.extract_features --dataset 'ImageList("QIK_Data/DIR_Candidates.txt")' --checkpoint QIK_Data/Resnet-101-AP-GeM.pt --output QIK_Data/QIK_DIR_Features --gpu 0
-
-
-#HOSTNAME needs to be set in the profile
