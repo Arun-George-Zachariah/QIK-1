@@ -64,7 +64,7 @@ def extract_raw_features(net, layer, d):
 if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
-    parser.add_argument('--images', dest='images', type=str, nargs='+', required=True, help='glob pattern to image data')
+    parser.add_argument('--images', dest='images', type=str, required=True, help='glob pattern to image data')
     parser.add_argument('--layer', dest='layer', type=str, default='pool5', help='model layer to extract')
     parser.add_argument('--prototxt', dest='prototxt', type=str, default='vgg/VGG_ILSVRC_16_pool5.prototxt', help='path to prototxt')
     parser.add_argument('--caffemodel', dest='caffemodel', type=str, default='vgg/VGG_ILSVRC_16_layers.caffemodel', help='path to model params')
@@ -76,8 +76,8 @@ if __name__ == '__main__':
     if not os.path.exists(args.out):
         os.makedirs(args.out)
 
-    for path in args.images:
-        img = load_img(path)
+    for path in os.listdir(args.images):
+        img = load_img(args.images + "/" + path)
 
         # Skip if the image failed to load
         if img is None:
