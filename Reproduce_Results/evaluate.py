@@ -1,6 +1,5 @@
 from pycocotools.coco import COCO
 import numpy as np
-import eval_constants
 import pickle
 import tensorflow as tf
 import tensorflow_hub as hub
@@ -20,18 +19,22 @@ category_combination = None
 
 # Local constants
 SIMILARITY_THRESHOLD = .70
-module_url = "https://tfhub.dev/google/universal-sentence-encoder/2"
-IMAGE_SET_PATH = "data/MSCOCO_Subset_2/MSCOCO_Subset_2.pkl"
-PRE_COMPUTED_RESULTS_PATH = "data/MSCOCO_Subset_2/MSCOCO_Subset_2_Results.pkl"
-OUTPUT_FILE = "QIK_Output_Combined.txt"
-CAT_COMB_FILE = "data/cat_comb.txt"
+IMAGE_SET_PATH = "data/15K_Dataset.pkl"
+PRE_COMPUTED_RESULTS_PATH = "pre_constructed_data/15K_Results.pkl"
+OUTPUT_FILE = "data/QIK_Output_Combined.txt"
+CAT_COMB_FILE = "data/2_cat_comb.txt"
+DATA_DIR = 'data'
+DATA_TYPE = '2017'
+ANN_FILE = '{}/instances_{}.json'.format(DATA_DIR,DATA_TYPE)
+CAPTIONS_FILE = '{}/captions_{}.json'.format(DATA_DIR,DATA_TYPE)
+SENTENCE_ENCODER_MODULE_URL = "https://tfhub.dev/google/universal-sentence-encoder/2"
 
 def init():
     global coco, coco_caps, data_dict, corr, image_subset, pre_computed_results
 
     # Loading annotations and creating an Index
-    coco=COCO(eval_constants.ANN_FILE)
-    coco_caps=COCO(eval_constants.CAPTIONS_FILE)
+    coco=COCO(ANN_FILE)
+    coco_caps=COCO(CAPTIONS_FILE)
 
     # Loading the subset of images.
     image_subset = pickle.load(open(IMAGE_SET_PATH, "rb"))
@@ -58,7 +61,7 @@ def init():
         data_dict[img['file_name']] = cap_lst
 
     # Loading the sentence similarity model
-    embed = hub.Module(module_url)
+    embed = hub.Module(SENTENCE_ENCODER_MODULE_URL)
 
     similarity_input_placeholder = tf.placeholder(tf.string, shape=(None))
     similarity_message_encodings = embed(similarity_input_placeholder)
@@ -617,14 +620,16 @@ def eval(category):
 if __name__ == '__main__':
     # Setting the global variables with user input.
     parser = argparse.ArgumentParser(description='Compute MAP for pre-fetched query results.')
+    parser.add_argument('-image_data', default="data/15K_Dataset.pkl", metavar='data', help='Pickled file containing the list of images.', required=False)
     parser.add_argument('-threshold', default=".70", type=float, help='Sentence similarity threshold.', required=False)
-    parser.add_argument('-preresults', default="pre_constructed_data/15K_Results.pkl", help='Pre-fetched results file path.', required=False)
+    parser.add_argument('-pre_computed_results', default="pre_constructed_data/15K_Results.pkl", help='Pre-fetched results file path.', required=False)
     parser.add_argument('-categories', default="data/2_cat_comb.txt", help='Category combination input file path.', required=False)
     parser.add_argument('-outfile', default="data/QIK_Output_Combined.txt",help='MAP output file path.', required=False)
     args = parser.parse_args()
 
+    IMAGE_SET_PATH = args.image_data
     SIMILARITY_THRESHOLD = args.threshold
-    PRE_COMPUTED_RESULTS_PATH = args.preresults
+    PRE_COMPUTED_RESULTS_PATH = args.pre_computed_results
     CAT_COMB_FILE = args.categories
     OUTPUT_FILE = args.outfile
 
