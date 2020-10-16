@@ -6,7 +6,8 @@ import json
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Create pickle of all the pre-computed query results.')
     parser.add_argument('-qik', default="pre_constructed_data/QIK_Captions_Pre_Results_Dict.txt", metavar='data', help='QIK captions results.', required=False)
-    parser.add_argument('-qik_objects', default="pre_constructed_data/QIK_Objects_8_Pre_Results_Dict.txt", metavar='data', help='QIK objects results.', required=False)
+    parser.add_argument('-qik_objects_8', default="pre_constructed_data/QIK_Objects_8_Pre_Results_Dict.txt", metavar='data', help='QIK objects results with object detection threshold set as 0.8.', required=False)
+    parser.add_argument('-qik_objects_9', default="pre_constructed_data/QIK_Objects_9_Pre_Results_Dict.txt", metavar='data', help='QIK objects results with object detection threshold set as 0.9.', required=False)
     parser.add_argument('-frcnn', default="pre_constructed_data/Deep_Vision_Pre_Results_Dict.txt", metavar='data', help='FR-CNN Results.', required=False)
     parser.add_argument('-dir', default="pre_constructed_data/DIR_Pre_Results_Dict.txt", metavar='data', help='DIR Results.', required=False)
     parser.add_argument('-delf', default="pre_constructed_data/DELF_Pre_Results_Dict.txt", metavar='data', help='DELF Results.', required=False)
@@ -25,12 +26,19 @@ if __name__ == "__main__":
         qik_results_dict[result.split("::")[0].strip()] = json.loads(result.split("::")[1].replace("'",'"'))
     print("qik_results_dict :: ", qik_results_dict)
 
-    # Iterating over QIK Objects Results.
-    qik_objects_results_dict = {}
-    results = open(args.qik_objects, "r")
+    # Iterating over QIK Objects (0.8) Results.
+    qik_objects_8_results_dict = {}
+    results = open(args.qik_objects_8, "r")
     for result in results:
-        qik_objects_results_dict[result.split("::")[0].strip()] = json.loads(result.split("::")[1].replace("'", '"'))
-    print("qik_objects_results_dict :: ", qik_objects_results_dict)
+        qik_objects_8_results_dict[result.split("::")[0].strip()] = json.loads(result.split("::")[1].replace("'", '"'))
+    print("qik_objects_8_results_dict :: ", qik_objects_8_results_dict)
+
+    # Iterating over QIK Objects (0.9) Results.
+    qik_objects_9_results_dict = {}
+    results = open(args.qik_objects_9, "r")
+    for result in results:
+        qik_objects_9_results_dict[result.split("::")[0].strip()] = json.loads(result.split("::")[1].replace("'", '"'))
+    print("qik_objects_9_results_dict :: ", qik_objects_9_results_dict)
 
     # Iterating over DeepVision Results.
     dv_results_dict = {}
@@ -69,8 +77,8 @@ if __name__ == "__main__":
 
     # Combining all the results.
     for image in qik_results_dict:
-        if image in qik_objects_results_dict and image in dv_results_dict and image in delf_results_dict and image in lire_results_dict and image in dir_results_dict and image in crow_results_dict:
-            results_dict[image] = {**qik_results_dict[image], **qik_objects_results_dict[image], **dv_results_dict[image], **delf_results_dict[image], **lire_results_dict[image], **dir_results_dict[image], **crow_results_dict[image]}
+        if image in qik_objects_8_results_dict and image in qik_objects_9_results_dict and image in dv_results_dict and image in delf_results_dict and image in lire_results_dict and image in dir_results_dict and image in crow_results_dict:
+            results_dict[image] = {**qik_results_dict[image], **qik_objects_8_results_dict[image], **qik_objects_9_results_dict[image], **dv_results_dict[image], **delf_results_dict[image], **lire_results_dict[image], **dir_results_dict[image], **crow_results_dict[image]}
     print("results_dict :: ", results_dict)
 
     # Converting the results to a pickle file.

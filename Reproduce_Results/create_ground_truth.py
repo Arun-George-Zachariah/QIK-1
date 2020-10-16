@@ -14,11 +14,11 @@ DATA_TYPE = '2017'
 ANN_FILE = '{}/instances_{}.json'.format(DATA_DIR,DATA_TYPE)
 CAPTIONS_FILE = '{}/captions_{}.json'.format(DATA_DIR,DATA_TYPE)
 SENTENCE_ENCODER_MODULE_URL = "https://tfhub.dev/google/universal-sentence-encoder/2"
-SIMILARITY_THRESHOLD = 0.7
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Preprocess to extract text from a folder of csv files.')
     parser.add_argument('-data', default="data/15K_Dataset.pkl", metavar='data', help='Pickled file containing the list of images.', required=False)
+    parser.add_argument('-threshold', default="0.7", metavar='data', help='Sentence similarity threshold.', required=False)
     parser.add_argument('-out', default="data/Ground_Truth.pkl", metavar='data', help='Directory to write the ground truth.', required=False)
     args = parser.parse_args()
 
@@ -86,7 +86,7 @@ if __name__ == "__main__":
             index = captions_lst.index(cap)
 
             for i, similarity in enumerate(corr[index][0:]):
-                if similarity > SIMILARITY_THRESHOLD and captions_lst[i] not in temp_cap_lst:
+                if similarity > float(args.threshold) and captions_lst[i] not in temp_cap_lst:
                     temp_cap_lst.append(captions_lst[i])
 
             # Fetch the images having that human generated caption.
@@ -97,6 +97,7 @@ if __name__ == "__main__":
 
         # Adding the ground truth for the image to the ground truth dictionary.
         ground_truth_dict[image] = ground_truth
+        print("create_ground_truth.py :: ground truth for the query :: ", image, " :: ", ground_truth)
 
     # Creating the pickle file of the ground truth.
     with open(args.out, "wb") as f:
