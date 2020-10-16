@@ -567,8 +567,6 @@ def evaluate_cat_comb(category_combination_file):
     crow_16_average = get_average(crow_16_mean_average_precision_lst)
     crow_time_average = get_average(crow_time_lst)
 
-    print("Test :: ", qik_2_mean_average_precision_lst)
-
     print("evaluate.py :: evaluate_cat_comb :: average results :: ", [qik_2_average, qik_4_average, qik_8_average, qik_16_average,
                                                         dir_2_average, dir_4_average, dir_8_average, dir_16_average,
                                                         lire_2_average, lire_4_average, lire_8_average, lire_16_average,
