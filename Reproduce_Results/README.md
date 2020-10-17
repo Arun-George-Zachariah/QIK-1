@@ -33,499 +33,415 @@ Add a script that performs a dry run, to ensure all the indexes are loaded.
 
 ## Results
 * Table 1:  QIKc vs QIKo : two-object combinations (avg. mAP)
-<table>
-    <tr>
-        <td rowspan="2"></td>
-        <td align="center" colspan="4">τ=0.6</td>
-        <td align="center" colspan="4">τ=0.7</td>
-    </tr>
-    <tr>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-    </tr>
-    <tr>
-        <td align="center">QIKc</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">QIKo (0.9)</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">QIKo (0.8)</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <td rowspan="2"></td>
+            <td align="center" colspan="4">τ=0.6</td>
+            <td align="center" colspan="4">τ=0.7</td>
+        </tr>
+        <tr>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+        </tr>
+        <tr>
+            <td align="center">QIKc</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">QIKo (0.9)</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">QIKo (0.8)</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+    </table>
 
 * Table 2:  QIKc vs QIKo : three-object combinations (avg. mAP)
-<table>
-    <tr>
-        <td rowspan="2"></td>
-        <td align="center" colspan="4">τ=0.6</td>
-        <td align="center" colspan="4">τ=0.7</td>
-    </tr>
-    <tr>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-    </tr>
-    <tr>
-        <td align="center">QIKc</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">QIKo (0.9)</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">QIKo (0.8)</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <td rowspan="2"></td>
+            <td align="center" colspan="4">τ=0.6</td>
+            <td align="center" colspan="4">τ=0.7</td>
+        </tr>
+        <tr>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+        </tr>
+        <tr>
+            <td align="center">QIKc</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">QIKo (0.9)</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">QIKo (0.8)</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+    </table>
 
 * Table 3:  QIKc vs QIKo : three-object combinations (avg. mAP)
-<table>
-    <tr>
-        <td rowspan="2"></td>
-        <td align="center" colspan="4">τ=0.6</td>
-        <td align="center" colspan="4">τ=0.7</td>
-    </tr>
-    <tr>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-    </tr>
-    <tr>
-        <td align="center">QIKc</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">QIKo (0.9)</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">QIKo (0.8)</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-        <td rowspan="2"></td>
-        <td align="center" colspan="4">τ=0.6</td>
-        <td align="center" colspan="4">τ=0.7</td>
-    </tr>
-    <tr>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-    </tr>
-    <tr>
-        <td align="center">QIK</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">CroW</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">FR-CNN</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">DIR</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">DELF</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">LIRE</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <td rowspan="2"></td>
+            <td align="center" colspan="4">τ=0.6</td>
+            <td align="center" colspan="4">τ=0.7</td>
+        </tr>
+        <tr>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+        </tr>
+        <tr>
+            <td align="center">QIKc</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">QIKo (0.9)</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">QIKo (0.8)</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+    </table>
 
 *  Table 4: Results for two-object combinations (avg. of mAP)
-<table>
-    <tr>
-        <td rowspan="2"></td>
-        <td align="center" colspan="4">τ=0.6</td>
-        <td align="center" colspan="4">τ=0.7</td>
-    </tr>
-    <tr>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-    </tr>
-    <tr>
-        <td align="center">QIK</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">CroW</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">FR-CNN</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">DIR</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">DELF</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">LIRE</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <td rowspan="2"></td>
+            <td align="center" colspan="4">τ=0.6</td>
+            <td align="center" colspan="4">τ=0.7</td>
+        </tr>
+        <tr>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+        </tr>
+        <tr>
+            <td align="center">QIK</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">CroW</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">FR-CNN</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">DIR</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">DELF</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">LIRE</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+    </table>
 
 *  Table 5: Results for three-object combinations (avg. of mAP)
-<table>
-    <tr>
-        <td rowspan="2"></td>
-        <td align="center" colspan="4">τ=0.6</td>
-        <td align="center" colspan="4">τ=0.7</td>
-    </tr>
-    <tr>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-    </tr>
-    <tr>
-        <td align="center">QIK</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">CroW</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">FR-CNN</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">DIR</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">DELF</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">LIRE</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <td rowspan="2"></td>
+            <td align="center" colspan="4">τ=0.6</td>
+            <td align="center" colspan="4">τ=0.7</td>
+        </tr>
+        <tr>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+        </tr>
+        <tr>
+            <td align="center">QIK</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">CroW</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">FR-CNN</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">DIR</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">DELF</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">LIRE</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+    </table>
 
 *  Table 6: Results for four-object combinations (avg. of mAP)
-<table>
-    <tr>
-        <td rowspan="2"></td>
-        <td align="center" colspan="4">τ=0.6</td>
-        <td align="center" colspan="4">τ=0.7</td>
-    </tr>
-    <tr>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-        <td align="center">k=2</td>
-        <td align="center">k=4</td>
-        <td align="center">k=8</td>
-        <td align="center">k=16</td>
-    </tr>
-    <tr>
-        <td align="center">QIK</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">CroW</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">FR-CNN</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">DIR</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">DELF</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-    <tr>
-        <td align="center">LIRE</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <td rowspan="2"></td>
+            <td align="center" colspan="4">τ=0.6</td>
+            <td align="center" colspan="4">τ=0.7</td>
+        </tr>
+        <tr>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+            <td align="center">k=2</td>
+            <td align="center">k=4</td>
+            <td align="center">k=8</td>
+            <td align="center">k=16</td>
+        </tr>
+        <tr>
+            <td align="center">QIK</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">CroW</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">FR-CNN</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">DIR</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">DELF</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">LIRE</td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+    </table>
 
 
 
