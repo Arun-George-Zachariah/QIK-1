@@ -64,7 +64,7 @@ We have a create setup script `setup_scripts/setup_prereq.sh` to install these p
     ```
     eg: To compute the mAP for 2 category combination with ground truth threshold τ as 0.6:
     ```
-    python get_mAP.py -image_data -data data/15K_Dataset.pkl -threshold 0.6 -pre_computed_results pre_constructed_data/15K_Results.pkl -ground_truth data/Ground_Truth_6.pkl -categories data/2_cat_comb.txt -outfile data/2_cat_6_results.txt
+    python get_mAP.py -image_data data/15K_Dataset.pkl -threshold 0.6 -pre_computed_results pre_constructed_data/15K_Results.pkl -ground_truth data/Ground_Truth_6.pkl -categories data/2_cat_comb.txt -outfile data/2_cat_6_results.txt
     ```
 
 ## Results
