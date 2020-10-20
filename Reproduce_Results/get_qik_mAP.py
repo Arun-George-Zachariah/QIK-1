@@ -340,6 +340,9 @@ def evaluate_cat_comb(category_combination_file):
     qik_objects_8_16_mean_average_precision_lst = []
     qik_objects_8_time_lst = []
 
+    # Total queries.
+    query_len_lst = []
+
     # Reading the category combination file.
     f = open(category_combination_file, "r")
     for cat_comb in f:
@@ -369,6 +372,9 @@ def evaluate_cat_comb(category_combination_file):
         qik_objects_8_16_mean_average_precision_lst.append(qik_objects_8_16_map)
         qik_objects_8_time_lst.append(qik_objects_8_time_avg)
 
+        # Adding the query length.
+        query_len_lst.append(query_lst_len)
+
     # Obtaining the average of all the category combinations.
     print("evaluate.py :: evaluate_cat_comb :: Computing the averaget of mAP.")
 
@@ -393,18 +399,21 @@ def evaluate_cat_comb(category_combination_file):
     qik_objects_8_16_average = get_average(qik_objects_8_16_mean_average_precision_lst)
     qik_objects_8_time_average = get_average(qik_objects_8_time_lst)
 
+    # Summing query lengths.
+    sum_query = sum(query_len_lst)
+
     print("evaluate.py :: evaluate_cat_comb :: average results :: ", [qik_2_average, qik_4_average, qik_8_average, qik_16_average,
                                                         qik_objects_9_2_average, qik_objects_9_4_average, qik_objects_9_8_average, qik_objects_9_16_average,
                                                         qik_objects_8_2_average, qik_objects_8_4_average, qik_objects_8_8_average, qik_objects_8_16_average,
-                                                        qik_time_average, qik_objects_9_time_average, qik_objects_8_time_average])
+                                                        qik_time_average, qik_objects_9_time_average, qik_objects_8_time_average, sum_query])
 
     # Pretty printing the results.
     t = PrettyTable(['System', 'k=2', 'k=4', 'k=8', 'k=16', "Average Time(s)"])
-    t.add_row(['QIK Captions', qik_2_average, qik_4_average, qik_8_average, qik_16_average, qik_time_average/1000000])
-    t.add_row(['QIK Objects (0.9)', qik_objects_9_2_average, qik_objects_9_4_average, qik_objects_9_8_average, qik_objects_9_16_average, qik_objects_9_time_average/1000000])
-    t.add_row(['QIK Objects (0.8)', qik_objects_8_2_average, qik_objects_8_4_average, qik_objects_8_8_average, qik_objects_8_16_average, qik_objects_8_time_average/1000000])
+    t.add_row(['QIK Captions', round(qik_2_average, 2), round(qik_4_average, 2), round(qik_8_average, 2), round(qik_16_average, 2), round(qik_time_average/1000000, 2)])
+    t.add_row(['QIK Objects (0.9)', round(qik_objects_9_2_average, 2), round(qik_objects_9_4_average, 2), round(qik_objects_9_8_average, 2), round(qik_objects_9_16_average, 2), round(qik_objects_9_time_average/1000000, 2)])
+    t.add_row(['QIK Objects (0.8)', round(qik_objects_8_2_average, 2), round(qik_objects_8_4_average, 2), round(qik_objects_8_8_average, 2), round(qik_objects_8_16_average, 2), round(qik_objects_8_time_average/1000000, 2)])
     print(t)
-    print("Total no of queries considerded = ", query_lst_len)
+    print("Total no of queries considered = ", sum_query)
 
 
 if __name__ == '__main__':

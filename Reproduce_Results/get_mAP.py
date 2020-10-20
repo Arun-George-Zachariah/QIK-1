@@ -472,6 +472,9 @@ def evaluate_cat_comb(category_combination_file):
     crow_16_mean_average_precision_lst = []
     crow_time_lst = []
 
+    # Total queries.
+    query_len_lst = []
+
     # Reading the category combination file.
     f = open(category_combination_file, "r")
     for cat_comb in f:
@@ -522,6 +525,9 @@ def evaluate_cat_comb(category_combination_file):
         crow_16_mean_average_precision_lst.append(crow_16_map)
         crow_time_lst.append(crow_time_avg)
 
+        # Adding the query length.
+        query_len_lst.append(query_lst_len)
+
     # Obtaining the average of all the category combinations.
     print("evaluate.py :: evaluate_cat_comb :: Computing the averaget of mAP.")
 
@@ -567,24 +573,27 @@ def evaluate_cat_comb(category_combination_file):
     crow_16_average = get_average(crow_16_mean_average_precision_lst)
     crow_time_average = get_average(crow_time_lst)
 
+    # Summing query lengths.
+    sum_query = sum(query_len_lst)
+
     print("evaluate.py :: evaluate_cat_comb :: average results :: ", [qik_2_average, qik_4_average, qik_8_average, qik_16_average,
                                                         dir_2_average, dir_4_average, dir_8_average, dir_16_average,
                                                         lire_2_average, lire_4_average, lire_8_average, lire_16_average,
                                                         delf_2_average, delf_4_average, delf_8_average, delf_16_average,
                                                         dv_2_average, dv_4_average, dv_8_average, dv_16_average,
                                                         crow_2_average, crow_4_average, crow_8_average, crow_16_average,
-                                                        qik_time_average, dir_time_average, lire_time_average, delf_time_average, dv_time_average, crow_time_average])
+                                                        qik_time_average, dir_time_average, lire_time_average, delf_time_average, dv_time_average, crow_time_average, sum_query])
 
     # Pretty printing the results.
     t = PrettyTable(['System', 'k=2', 'k=4', 'k=8', 'k=16', "Average Time(s)"])
-    t.add_row(['QIK', qik_2_average, qik_4_average, qik_8_average, qik_16_average, qik_time_average/1000000])
-    t.add_row(['CroW', crow_2_average, crow_4_average, crow_8_average, crow_16_average, crow_time_average])
-    t.add_row(['FR-CNN', dv_2_average, dv_4_average, dv_8_average, dv_16_average, dv_time_average/1000000])
-    t.add_row(['DIR', dir_2_average, dir_4_average, dir_8_average, dir_16_average, dir_time_average/1000000])
-    t.add_row(['DELF', delf_2_average, delf_4_average, delf_8_average, delf_16_average, delf_time_average/1000000])
-    t.add_row(['LIRE', lire_2_average, lire_4_average, lire_8_average, lire_16_average, lire_time_average/1000000])
+    t.add_row(['QIK', round(qik_2_average, 2), round(qik_4_average, 2), round(qik_8_average, 2), round(qik_16_average, 2), round(qik_time_average/1000000, 2)])
+    t.add_row(['CroW', round(crow_2_average, 2), round(crow_4_average, 2), round(crow_8_average, 2), round(crow_16_average, 2), round(crow_time_average, 2)])
+    t.add_row(['FR-CNN', round(dv_2_average, 2), round(dv_4_average, 2), round(dv_8_average, 2), round(dv_16_average, 2), round(dv_time_average/1000000, 2)])
+    t.add_row(['DIR', round(dir_2_average, 2), round(dir_4_average, 2), round(dir_8_average, 2), round(dir_16_average, 2), round(dir_time_average/1000000, 2)])
+    t.add_row(['DELF', round(delf_2_average, 2), round(delf_4_average, 2), round(delf_8_average, 2), round(delf_16_average, 2), round(delf_time_average/1000000, 2)])
+    t.add_row(['LIRE', round(lire_2_average, 2), round(lire_4_average, 2), round(lire_8_average, 2), round(lire_16_average, 2), round(lire_time_average/1000000, 2)])
     print(t)
-    print("Total no of queries considerded = ", query_lst_len)
+    print("Total no of queries considered = ", sum_query)
 
 if __name__ == '__main__':
     # Setting the global variables with user input.
