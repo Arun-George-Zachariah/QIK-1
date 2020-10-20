@@ -92,12 +92,12 @@ def evaluate(query_lst):
         qik_time_lst.append(pre_computed_results[query_image]["qik_time"])
 
         # QIK Objects 0.9 Results List.
-        qik_objects_9_results = pre_computed_results[query_image]["qik_objects_9_results_dict"]
+        qik_objects_9_results = pre_computed_results[query_image]["qik_obj_9_results"]
         print("evaluate.py :: evaluate :: qik_objects_9_results", qik_objects_9_results)
         qik_objects_9_time_lst.append(pre_computed_results[query_image]["qik_obj_9_time"])
 
         # QIK Objects 0.8 Results List.
-        qik_objects_8_results = pre_computed_results[query_image]["qik_objects_8_results_dict"]
+        qik_objects_8_results = pre_computed_results[query_image]["qik_obj_8_results"]
         print("evaluate.py :: evaluate :: qik_objects_8_results", qik_objects_8_results)
         qik_objects_8_time_lst.append(pre_computed_results[query_image]["qik_obj_8_time"])
 
@@ -154,19 +154,19 @@ def evaluate(query_lst):
     # 2) QIK Objects 0.9 Results List.
     # k=2
     qik_objects_9_2_map = get_mAP(qik_objects_9_2_relevance_lst)
-    print("evaluate.py :: evaluate :: QIK Objects 0.9 :: k=2 :: Mean Average Precision :: %s :: %f" % (category_combination, dir_2_map))
+    print("evaluate.py :: evaluate :: QIK Objects 0.9 :: k=2 :: Mean Average Precision :: %s :: %f" % (category_combination, qik_objects_9_2_map))
 
     # k=4
     qik_objects_9_4_map = get_mAP(qik_objects_9_4_relevance_lst)
-    print("evaluate.py :: evaluate :: QIK Objects 0.9 :: k=4 :: Mean Average Precision :: %s :: %f" % (category_combination, dir_4_map))
+    print("evaluate.py :: evaluate :: QIK Objects 0.9 :: k=4 :: Mean Average Precision :: %s :: %f" % (category_combination, qik_objects_9_4_map))
 
     # k=8
     qik_objects_9_8_map = get_mAP(qik_objects_9_8_relevance_lst)
-    print("evaluate.py :: evaluate :: QIK Objects 0.9 :: k=8 :: Mean Average Precision :: %s :: %f" % (category_combination, dir_8_map))
+    print("evaluate.py :: evaluate :: QIK Objects 0.9 :: k=8 :: Mean Average Precision :: %s :: %f" % (category_combination, qik_objects_9_8_map))
 
     # k=16
     qik_objects_9_16_map = get_mAP(qik_objects_9_16_relevance_lst)
-    print("evaluate.py :: evaluate :: QIK Objects 0.9 :: k=16 :: Mean Average Precision :: %s :: %f" % (category_combination, dir_16_map))
+    print("evaluate.py :: evaluate :: QIK Objects 0.9 :: k=16 :: Mean Average Precision :: %s :: %f" % (category_combination, qik_objects_9_16_map))
 
     qik_objects_9_time_avg = get_average(qik_objects_9_time_lst)
     print("evaluate.py :: evaluate :: QIK Objects 0.9 :: Average time :: %f " % (qik_objects_9_time_avg))
@@ -174,19 +174,19 @@ def evaluate(query_lst):
     # 3) QIK Objects 0.8 Results List.
     # k=2
     qik_objects_8_2_map = get_mAP(qik_objects_8_2_relevance_lst)
-    print("evaluate.py :: evaluate :: QIK Objects 0.8 :: k=2 :: Mean Average Precision :: %s :: %f" % (category_combination, lire_2_map))
+    print("evaluate.py :: evaluate :: QIK Objects 0.8 :: k=2 :: Mean Average Precision :: %s :: %f" % (category_combination, qik_objects_8_2_map))
 
     # k=4
     qik_objects_8_4_map = get_mAP(qik_objects_8_4_relevance_lst)
-    print("evaluate.py :: evaluate :: QIK Objects 0.8 :: k=4 :: Mean Average Precision :: %s :: %f" % (category_combination, lire_4_map))
+    print("evaluate.py :: evaluate :: QIK Objects 0.8 :: k=4 :: Mean Average Precision :: %s :: %f" % (category_combination, qik_objects_8_4_map))
 
     # k=8
     qik_objects_8_8_map = get_mAP(qik_objects_8_8_relevance_lst)
-    print("evaluate.py :: evaluate :: QIK Objects 0.8 :: k=8 :: Mean Average Precision :: %s :: %f" % (category_combination, lire_8_map))
+    print("evaluate.py :: evaluate :: QIK Objects 0.8 :: k=8 :: Mean Average Precision :: %s :: %f" % (category_combination, qik_objects_8_8_map))
 
     # k=16
     qik_objects_8_16_map = get_mAP(qik_objects_8_16_relevance_lst)
-    print("evaluate.py :: evaluate :: QIK Objects 0.8 :: k=16 :: Mean Average Precision :: %s :: %f" % (category_combination, lire_16_map))
+    print("evaluate.py :: evaluate :: QIK Objects 0.8 :: k=16 :: Mean Average Precision :: %s :: %f" % (category_combination, qik_objects_8_16_map))
 
     qik_objects_8_time_avg = get_average(qik_objects_8_time_lst)
     print("evaluate.py :: evaluate :: QIK Objects 0.8 :: Average time :: %f " % (qik_objects_8_time_avg))
@@ -404,6 +404,7 @@ def evaluate_cat_comb(category_combination_file):
     t.add_row(['QIK Objects (0.9)', qik_objects_9_2_average, qik_objects_9_4_average, qik_objects_9_8_average, qik_objects_9_16_average, qik_objects_9_time_average/1000000])
     t.add_row(['QIK Objects (0.8)', qik_objects_8_2_average, qik_objects_8_4_average, qik_objects_8_8_average, qik_objects_8_16_average, qik_objects_8_time_average/1000000])
     print(t)
+    print("Total no of queries considerded = ", query_lst_len)
 
 
 if __name__ == '__main__':

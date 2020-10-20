@@ -584,7 +584,7 @@ def evaluate_cat_comb(category_combination_file):
     t.add_row(['DELF', delf_2_average, delf_4_average, delf_8_average, delf_16_average, delf_time_average/1000000])
     t.add_row(['LIRE', lire_2_average, lire_4_average, lire_8_average, lire_16_average, lire_time_average/1000000])
     print(t)
-
+    print("Total no of queries considerded = ", query_lst_len)
 
 if __name__ == '__main__':
     # Setting the global variables with user input.
